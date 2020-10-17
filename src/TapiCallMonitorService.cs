@@ -334,7 +334,7 @@ namespace TapiCallMonitorService
         {
             try
             {
-                TapiLine line = e.Line;
+                ITapiLine line = e.Line;
 
                 // log all changes
                 addPbxLogRecord("LineChanged", line.Id, line.Name, line.DeviceSpecificExtensionID,
@@ -352,7 +352,7 @@ namespace TapiCallMonitorService
         {
             try
             {
-                TapiLine line = e.Line;
+                ITapiLine line = e.Line;
 
                 // log all changes
                 addPbxLogRecord("LineRemoved", line.Id, line.Name, line.DeviceSpecificExtensionID,
@@ -371,7 +371,7 @@ namespace TapiCallMonitorService
             try
             {
                 TapiPhone phone = e.Phone; // line.GetAssociatedPhone();
-                TapiLine line = phone.GetAssociatedLine(); 
+                ITapiLine line = phone.GetAssociatedLine(); 
 
                 // log all changes
                 addPbxLogRecord("PhoneAdded", line.Id, line.Name, line.DeviceSpecificExtensionID,
@@ -390,7 +390,7 @@ namespace TapiCallMonitorService
             try
             {
                 TapiPhone phone = e.Phone; // line.GetAssociatedPhone();
-                TapiLine line = phone.GetAssociatedLine();
+                ITapiLine line = phone.GetAssociatedLine();
 
                 // log all changes
                 addPbxLogRecord("PhoneRemoved", line.Id, line.Name, line.DeviceSpecificExtensionID,
