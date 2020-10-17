@@ -54,6 +54,7 @@ The txtCallerName contains the version number of the service (currently 0.4), an
 | Windows Service Events               |                                                   |                 |                |                   |
 |--------------------------------------|---------------------------------------------------|-----------------|----------------|-------------------|
 | **tblPbxLog**                        | **OnStart**                                       | **OnStop**      | **OnPause**    | **OnContinue**    |
+|--------------------------------------|--------------------------|--------------------------|--------------------------|
 | dtmTime                              |                                                   |                 |                |                   |
 | lngTimeMsec                          |                                                   |                 |                |                   |
 | txtEventName                         | OnStart                                           | OnStop          | OnPause        | OnContinue        |
@@ -82,85 +83,86 @@ The txtCallerName contains the version number of the service (currently 0.4), an
 
 | TAPI Call Events                     |           |                    |                   |
 |--------------------------------------|-----------|--------------------|-------------------|
-| tblPbxLog                            | OnNewCall | OnCallStateChanged | OnCallInfoChanged |
-| dtmTime                              | NewCall   | CallStateChanged   | CallInfoChanged   |
-| lngTimeMsec                          | :white_check_mark:         | x                  | x                 |
-| txtEventName                         | x         | x                  | x                 |
-| lngTapiLineId                        | x         | x                  | x                 |
-| txtTapiLineName                      | x or -1   | x or -1            | x or -1           |
-| txtTapiLineDeviceSpecificExtensionID | x or ""   | x or ""            | x or ""           |
-| lngPhoneId                           | x         | x                  | x                 |
-| txtPhoneName                         | x         | x                  | x                 |
-| lngCallId                            | x         | x                  | x                 |
-| lngCallRelatedId                     | ""        | ""                 | ""                |
-| lngCallTrunkId                       | x         | x                  | x                 |
-| txtDeviceSpecificData                | x         | x                  | x                 |
-| lngCallState                         | x         | x                  | x                 |
-| txtCallerId                          | x         | x                  | x                 |
-| txtCallerName                        | x         | x                  | x                 |
-| txtCalledId                          | x         | x                  | x                 |
-| txtCalledName                        | x         | x                  | x                 |
-| txtConnectedId                       | x         | x                  | x                 |
-| txtConnectedName                     | x         | x                  | x                 |
-| lngCallOrigin                        | 0         | 0                  | x                 |
-| lngCallReason                        |           |                    |                   |
-| lngChangeType                        |           |                    |                   |
-
+| **tblPbxLog**                            | **OnNewCall** | **OnCallStateChanged** | **OnCallInfoChanged** |
+|--------------------------------------|--------------------------|--------------------------|--------------------------|
+| dtmTime                              |                          |                          |                          |
+| lngTimeMsec                          |                          |                          |                          |
+| txtEventName                         | NewCall                  | CallStateChanged         | CallInfoChanged          |
+| lngTapiLineId                        | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| txtTapiLineName                      | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| txtTapiLineDeviceSpecificExtensionID | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| lngPhoneId                           | :white_check_mark: or -1 | :white_check_mark: or -1 | :white_check_mark: or -1 |
+| txtPhoneName                         | :white_check_mark: or "" | :white_check_mark: or "" | :white_check_mark: or "" |
+| lngCallId                            | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| lngCallRelatedId                     | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| lngCallTrunkId                       | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| txtDeviceSpecificData                | ""                       | ""                       | ""                       |
+| lngCallState                         | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| txtCallerId                          | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| txtCallerName                        | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| txtCalledId                          | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| txtCalledName                        | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| txtConnectedId                       | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| txtConnectedName                     | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| lngCallOrigin                        | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| lngCallReason                        | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
+| lngChangeType                        | 0                        | 0                        | :white_check_mark:       |
 
 ## TAPI line events
 
 | TAPI Line Events                     |             |               |               |
 |--------------------------------------|-------------|---------------|---------------|
-| tblPbxLog                            | OnLineAdded | OnLineChanged | OnLineRemoved |
-| dtmTime                              | LineAdded   | LineChanged   | LineRemoved   |
-| lngTimeMsec                          | x           | x             | x             |
-| txtEventName                         | x           | x             | x             |
-| lngTapiLineId                        | x           | x             | x             |
-| txtTapiLineName                      | -1          | -1            | -1            |
-| txtTapiLineDeviceSpecificExtensionID |             |               |               |
-| lngPhoneId                           | -1          | -1            | -1            |
-| txtPhoneName                         | -1          | -1            | -1            |
-| lngCallId                            | -1          | -1            | -1            |
-| lngCallRelatedId                     |             |               |               |
-| lngCallTrunkId                       | -1          | -1            | -1            |
-| txtDeviceSpecificData                |             |               |               |
-| lngCallState                         |             |               |               |
-| txtCallerId                          |             |               |               |
-| txtCallerName                        |             |               |               |
-| txtCalledId                          |             |               |               |
-| txtCalledName                        |             |               |               |
-| txtConnectedId                       | 0           | 0             | 0             |
-| txtConnectedName                     | 0           | 0             | 0             |
-| lngCallOrigin                        | 0           | 0             | 0             |
-| lngCallReason                        |             |               |               |
-| lngChangeType                        |             |               |               |
+| **tblPbxLog**                            | **OnLineAdded**        | **OnLineChanged**      | **OnLineRemoved**      |
+|--------------------------------------|--------------------|--------------------|--------------------|
+| dtmTime                              |                    |                    |                    |
+| lngTimeMsec                          |                    |                    |                    |
+| txtEventName                         | LineAdded          | LineChanged        | LineRemoved        |
+| lngTapiLineId                        | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| txtTapiLineName                      | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| txtTapiLineDeviceSpecificExtensionID | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| lngPhoneId                           | -1                 | -1                 | -1                 |
+| txtPhoneName                         |                    |                    |                    |
+| lngCallId                            | -1                 | -1                 | -1                 |
+| lngCallRelatedId                     | -1                 | -1                 | -1                 |
+| lngCallTrunkId                       | -1                 | -1                 | -1                 |
+| txtDeviceSpecificData                |                    |                    |                    |
+| lngCallState                         | -1                 | -1                 | -1                 |
+| txtCallerId                          |                    |                    |                    |
+| txtCallerName                        |                    |                    |                    |
+| txtCalledId                          |                    |                    |                    |
+| txtCalledName                        |                    |                    |                    |
+| txtConnectedId                       |                    |                    |                    |
+| txtConnectedName                     |                    |                    |                    |
+| lngCallOrigin                        | 0                  | 0                  | 0                  |
+| lngCallReason                        | 0                  | 0                  | 0                  |
+| lngChangeType                        | 0                  | 0                  | 0                  |
 
 
 ## TAPI phone events
 
 | TAPI Phone Events                    |              |                |
 |--------------------------------------|--------------|----------------|
-| tblPbxLog                            | OnPhoneAdded | OnPhoneRemoved |
-| dtmTime                              | PhoneAdded   | PhoneRemoved   |
-| lngTimeMsec                          | x            | x              |
-| txtEventName                         | x            | x              |
-| lngTapiLineId                        | x            | x              |
-| txtTapiLineName                      | x or -1      | x or -1        |
-| txtTapiLineDeviceSpecificExtensionID | x or ""      | x or ""        |
-| lngPhoneId                           | -1           | -1             |
-| txtPhoneName                         | -1           | -1             |
-| lngCallId                            | -1           | -1             |
-| lngCallRelatedId                     |              |                |
-| lngCallTrunkId                       | -1           | -1             |
-| txtDeviceSpecificData                |              |                |
-| lngCallState                         |              |                |
-| txtCallerId                          |              |                |
-| txtCallerName                        |              |                |
-| txtCalledId                          |              |                |
-| txtCalledName                        |              |                |
-| txtConnectedId                       | 0            | 0              |
-| txtConnectedName                     | 0            | 0              |
-| lngCallOrigin                        | 0            | 0              |
-| lngCallReason                        |              |                |
-| lngChangeType                        |              |                |
-
+| **tblPbxLog**                            | **OnPhoneAdded**             | **OnPhoneRemoved**           |
+|--------------------------------------|--------------------------|--------------------------|
+| dtmTime                              |                          |                          |
+| lngTimeMsec                          |                          |                          |
+| txtEventName                         | PhoneAdded               | PhoneRemoved             |
+| lngTapiLineId                        | :white_check_mark:       | :white_check_mark:       |
+| txtTapiLineName                      | :white_check_mark:       | :white_check_mark:       |
+| txtTapiLineDeviceSpecificExtensionID | :white_check_mark:       | :white_check_mark:       |
+| lngPhoneId                           | :white_check_mark: or -1 | :white_check_mark: or -1 |
+| txtPhoneName                         | :white_check_mark: or "" | :white_check_mark: or "" |
+| lngCallId                            | -1                       | -1                       |
+| lngCallRelatedId                     | -1                       | -1                       |
+| lngCallTrunkId                       | -1                       | -1                       |
+| txtDeviceSpecificData                |                          |                          |
+| lngCallState                         | -1                       | -1                       |
+| txtCallerId                          |                          |                          |
+| txtCallerName                        |                          |                          |
+| txtCalledId                          |                          |                          |
+| txtCalledName                        |                          |                          |
+| txtConnectedId                       |                          |                          |
+| txtConnectedName                     |                          |                          |
+| lngCallOrigin                        | 0                        | 0                        |
+| lngCallReason                        | 0                        | 0                        |
+| lngChangeType                        | 0                        | 0                        |
