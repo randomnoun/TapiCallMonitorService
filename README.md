@@ -53,7 +53,7 @@ The txtCallerName contains the version number of the service (currently 0.4), an
 
 | Windows Service Events               |                                                   |                 |                |                   |
 |--------------------------------------|---------------------------------------------------|-----------------|----------------|-------------------|
-| tblPbxLog                            | OnStart                                           | OnStop          | OnPause        | OnContinue        |
+| **tblPbxLog**                        | **OnStart**                                       | **OnStop**      | **OnPause**    | **OnContinue**    |
 | dtmTime                              |                                                   |                 |                |                   |
 | lngTimeMsec                          |                                                   |                 |                |                   |
 | txtEventName                         | OnStart                                           | OnStop          | OnPause        | OnContinue        |
@@ -84,7 +84,7 @@ The txtCallerName contains the version number of the service (currently 0.4), an
 |--------------------------------------|-----------|--------------------|-------------------|
 | tblPbxLog                            | OnNewCall | OnCallStateChanged | OnCallInfoChanged |
 | dtmTime                              | NewCall   | CallStateChanged   | CallInfoChanged   |
-| lngTimeMsec                          | x         | x                  | x                 |
+| lngTimeMsec                          | :white_check_mark:         | x                  | x                 |
 | txtEventName                         | x         | x                  | x                 |
 | lngTapiLineId                        | x         | x                  | x                 |
 | txtTapiLineName                      | x or -1   | x or -1            | x or -1           |
