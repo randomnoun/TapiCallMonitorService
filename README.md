@@ -54,8 +54,8 @@ The txtCallerName contains the version number of the service (currently 0.4), an
 | Windows Service Events               |                                                   |                 |                |                   |
 |--------------------------------------|---------------------------------------------------|-----------------|----------------|-------------------|
 | **tblPbxLog**                        | **OnStart**                                       | **OnStop**      | **OnPause**    | **OnContinue**    |
-| dtmTime                              |                                                   |                 |                |                   |
-| lngTimeMsec                          |                                                   |                 |                |                   |
+| dtmTime                              | :clock2:                                                  |  :clock2:               |   :clock2:             |   :clock2:                |
+| lngTimeMsec                          | :clock2:                                                  | :clock2:                |   :clock2:             |  :clock2:                 |
 | txtEventName                         | OnStart                                           | OnStop          | OnPause        | OnContinue        |
 | lngTapiLineId                        | -1                                                | -1              | -1             | -1                |
 | txtTapiLineName                      |                                                   |                 |                |                   |
@@ -83,8 +83,8 @@ The txtCallerName contains the version number of the service (currently 0.4), an
 | TAPI Call Events                     |           |                    |                   |
 |--------------------------------------|-----------|--------------------|-------------------|
 | **tblPbxLog**                            | **OnNewCall** | **OnCallStateChanged** | **OnCallInfoChanged** |
-| dtmTime                              |                          |                          |                          |
-| lngTimeMsec                          |                          |                          |                          |
+| dtmTime                              | :clock2:                         |  :clock2:                        |  :clock2:                        |
+| lngTimeMsec                          | :clock2:                         |  :clock2:                        |  :clock2:                        |
 | txtEventName                         | NewCall                  | CallStateChanged         | CallInfoChanged          |
 | lngTapiLineId                        | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
 | txtTapiLineName                      | :white_check_mark:       | :white_check_mark:       | :white_check_mark:       |
@@ -111,8 +111,8 @@ The txtCallerName contains the version number of the service (currently 0.4), an
 | TAPI Line Events                     |             |               |               |
 |--------------------------------------|-------------|---------------|---------------|
 | **tblPbxLog**                            | **OnLineAdded**        | **OnLineChanged**      | **OnLineRemoved**      |
-| dtmTime                              |                    |                    |                    |
-| lngTimeMsec                          |                    |                    |                    |
+| dtmTime                              |  :clock2:                  |  :clock2:                  |  :clock2:                  |
+| lngTimeMsec                          |  :clock2:                  |  :clock2:                  |  :clock2:                  |
 | txtEventName                         | LineAdded          | LineChanged        | LineRemoved        |
 | lngTapiLineId                        | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | txtTapiLineName                      | :white_check_mark: | :white_check_mark: | :white_check_mark: |
@@ -140,8 +140,8 @@ The txtCallerName contains the version number of the service (currently 0.4), an
 | TAPI Phone Events                    |              |                |
 |--------------------------------------|--------------|----------------|
 | **tblPbxLog**                            | **OnPhoneAdded**             | **OnPhoneRemoved**           |
-| dtmTime                              |                          |                          |
-| lngTimeMsec                          |                          |                          |
+| dtmTime                              |  :clock2:                        |   :clock2:                       |
+| lngTimeMsec                          |  :clock2:                        |   :clock2:                       |
 | txtEventName                         | PhoneAdded               | PhoneRemoved             |
 | lngTapiLineId                        | :white_check_mark:       | :white_check_mark:       |
 | txtTapiLineName                      | :white_check_mark:       | :white_check_mark:       |
