@@ -1,9 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TapiCallMonitorService", "TapiCallMonitorService.csproj", "{C5DF155F-3FB1-4BF4-AF44-694DD9BC0634}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atapi", "..\opensource\atapi\source\src\Atapi.csproj", "{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atapi", "lib\Atapi\src\src\Atapi.csproj", "{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,12 +68,17 @@ Global
 		{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}.Release (x86)|x64.Build.0 = Release (x86)|x64
 		{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}.Release (x86)|x86.ActiveCfg = Release (x86)|x86
 		{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}.Release (x86)|x86.Build.0 = Release (x86)|x86
-		{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}.Release|Any CPU.ActiveCfg = Release (x86)|x86
-		{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}.Release|x64.ActiveCfg = Release (x86)|x86
-		{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}.Release|x86.ActiveCfg = Release (x86)|x86
-		{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}.Release|x86.Build.0 = Release (x86)|x86
+		{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}.Release|Any CPU.ActiveCfg = Debug|x64
+		{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}.Release|Any CPU.Build.0 = Debug|x64
+		{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}.Release|x64.ActiveCfg = Release (x64)|x64
+		{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}.Release|x64.Build.0 = Release (x64)|x64
+		{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}.Release|x86.ActiveCfg = Release (x64)|x86
+		{FEE69FDB-BC68-476A-8A05-1940A5BCFBF2}.Release|x86.Build.0 = Release (x64)|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A70062D0-5746-415A-8294-D5B467A5C610}
 	EndGlobalSection
 EndGlobal
