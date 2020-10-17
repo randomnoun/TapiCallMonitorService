@@ -54,7 +54,6 @@ The txtCallerName contains the version number of the service (currently 0.4), an
 | Windows Service Events               |                                                   |                 |                |                   |
 |--------------------------------------|---------------------------------------------------|-----------------|----------------|-------------------|
 | **tblPbxLog**                        | **OnStart**                                       | **OnStop**      | **OnPause**    | **OnContinue**    |
-|--------------------------------------|--------------------------|--------------------------|--------------------------|
 | dtmTime                              |                                                   |                 |                |                   |
 | lngTimeMsec                          |                                                   |                 |                |                   |
 | txtEventName                         | OnStart                                           | OnStop          | OnPause        | OnContinue        |
@@ -84,7 +83,6 @@ The txtCallerName contains the version number of the service (currently 0.4), an
 | TAPI Call Events                     |           |                    |                   |
 |--------------------------------------|-----------|--------------------|-------------------|
 | **tblPbxLog**                            | **OnNewCall** | **OnCallStateChanged** | **OnCallInfoChanged** |
-|--------------------------------------|--------------------------|--------------------------|--------------------------|
 | dtmTime                              |                          |                          |                          |
 | lngTimeMsec                          |                          |                          |                          |
 | txtEventName                         | NewCall                  | CallStateChanged         | CallInfoChanged          |
@@ -113,7 +111,6 @@ The txtCallerName contains the version number of the service (currently 0.4), an
 | TAPI Line Events                     |             |               |               |
 |--------------------------------------|-------------|---------------|---------------|
 | **tblPbxLog**                            | **OnLineAdded**        | **OnLineChanged**      | **OnLineRemoved**      |
-|--------------------------------------|--------------------|--------------------|--------------------|
 | dtmTime                              |                    |                    |                    |
 | lngTimeMsec                          |                    |                    |                    |
 | txtEventName                         | LineAdded          | LineChanged        | LineRemoved        |
@@ -143,7 +140,6 @@ The txtCallerName contains the version number of the service (currently 0.4), an
 | TAPI Phone Events                    |              |                |
 |--------------------------------------|--------------|----------------|
 | **tblPbxLog**                            | **OnPhoneAdded**             | **OnPhoneRemoved**           |
-|--------------------------------------|--------------------------|--------------------------|
 | dtmTime                              |                          |                          |
 | lngTimeMsec                          |                          |                          |
 | txtEventName                         | PhoneAdded               | PhoneRemoved             |
