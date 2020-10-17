@@ -81,26 +81,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProjectInstaller.cs">
+    <Compile Include="src\ProjectInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ProjectInstaller.Designer.cs">
+    <Compile Include="src\ProjectInstaller.Designer.cs">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </Compile>
-    <Compile Include="TapiCallMonitorService.cs">
+    <Compile Include="src\TapiCallMonitorService.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TapiCallMonitorService.Designer.cs">
+    <Compile Include="src\TapiCallMonitorService.Designer.cs">
       <DependentUpon>TapiCallMonitorService.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="src\Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ProjectInstaller.resx">
+    <EmbeddedResource Include="src\ProjectInstaller.resx">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TapiCallMonitorService.resx">
+    <EmbeddedResource Include="src\TapiCallMonitorService.resx">
       <DependentUpon>TapiCallMonitorService.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
