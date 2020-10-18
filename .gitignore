@@ -1,4 +1,7 @@
 /.vs/
 /bin/
+/dist/TapiCallMonitorService.InstallLog
+/dist/InstallUtil.InstallLog
 /obj/
 /.project
+*.bak
