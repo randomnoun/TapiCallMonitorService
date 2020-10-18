@@ -88,3 +88,5 @@ Click Connect
 ![Login](doc/image/Image11.png)
 
 If that all seem to work, then you should be able to set up your connection congfiguration in the registry and start the service
+
+[Return to README.md](README.md)

@@ -17,14 +17,18 @@ To install this software, you will need to
 
 * Install the TAPI driver for your PBX. 
    * If you're using Asterix, there's [an open source one](https://www.voip-info.org/asterisk-tapi/), otherwise check the driver download page for your particular PBX device.
+   
 * Install a SQLServer-compatible database. Microsoft has a free one which is good enough, which you can install with either
    *  [Visual Studio 2019 Community edition](https://visualstudio.microsoft.com/downloads/) if you want to compile the service from source, or 
    * [SQL Server 2019 Express](https://www.microsoft.com/en-gb/sql-server/sql-server-downloads) if you don't
-* In your SQLServer instance, create a new database, a user in that table, and a single table called "tblPbxLog" using the  SQL found in [sample-db-setup.sql](sample-db-setup.sql)
+   
+* Set up the database 
+   * Details are in [README-SQLSERVER.md](README-SQLSERVER.md)
 
 * The connection settings to the database are stored in the registry undor the following keys:
    * HKEY_LOCAL_MACHINE\SOFTWARE\Randomnoun\TapiCallMonitorService\LogFilename
    * HKEY_LOCAL_MACHINE\SOFTWARE\Randomnoun\TapiCallMonitorService\ConnectionString
+
 * A sample .reg file which contains the connection string format can be found in [sample-reg-setup.reg](sample-reg-setup.reg)
 
 
