@@ -1,4 +1,5 @@
 
+
 # What is it ?
 
 This project contains a Windows service which monitors a TAPI-compliant PBX 
@@ -15,6 +16,7 @@ You can then monitor that table and use it as the basis for a call monitoring an
 # How is it ?
 To install this software, you will need to
 
+* Clone the repository, or just copy the files in the 'dist' folder to a local folder.
 * Install the TAPI driver for your PBX. 
    * If you're using Asterix, there's [an open source one](https://www.voip-info.org/asterisk-tapi/), otherwise check the driver download page for your particular PBX device.
    
@@ -25,24 +27,43 @@ To install this software, you will need to
 * Set up the database 
    * Details are in [README-SQLSERVER.md](README-SQLSERVER.md)
 
-* The connection settings to the database are stored in the registry undor the following keys:
-   * HKEY_LOCAL_MACHINE\SOFTWARE\Randomnoun\TapiCallMonitorService\LogFilename
-   * HKEY_LOCAL_MACHINE\SOFTWARE\Randomnoun\TapiCallMonitorService\ConnectionString
+* Set up the registry
+   * The connection settings to the database are stored in the registry under the following keys:
+      * HKEY_LOCAL_MACHINE\SOFTWARE\Randomnoun\TapiCallMonitorService\LogFilename
+      * HKEY_LOCAL_MACHINE\SOFTWARE\Randomnoun\TapiCallMonitorService\ConnectionString
 
-* A sample .reg file which contains the connection string format can be found in [sample-reg-setup.reg](sample-reg-setup.reg)
+   * You will probably need to create any folders leading up to the log file. In the supplied sample file it's C:\data\logs\TapiCallMonitorService
+   * A sample .reg file which contains the required connection string format can be found in [sample-reg-setup.reg](sample-reg-setup.reg) .  
+      * Replace 'YTTRIUM' with your hostname 
+      * Replace 'pbx-dev-username' and 'pbx-dev-password' with the credentials created earlier
+      * Replace 'C:\\data\\logs\\TapiCallMonitorService' with your log path
 
 
+* Install and run the service
+   * From an elevated cmd.exe window, run the following commands:
 
-* Copy the exe which I also haven't added to the repos yet somewhere and install it as a service somehow.
+    cd dist 
+    %SystemRoot%\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe TapiCallMonitorService.exe
+    net start TapiCallMonitorService
+
+# Troubleshooting
+* Check that the service has been installed in Control Panel > Administrative Tools > Services > TapiCallMonitorService
+* If the service is not listed check the output from the 'InstallUtil.exe' command above for error messages.
+* If the service is listed, try manually starting or restarting the service  ( right-click > Start or right-click > Restart )
+* Inspect the log file at C:\data\logs\TapiCallMonitorService\TapiCallMonitorService.log for error messages.
+* If the log file exists but is empty, try restarting the service; the log file is not flushed until the service is stopped.
+* Check the service account has sufficient privileges ( right-click > Properties > Log On tab > Log on as 'Local System account' )
+* Check for any startup errors in Control Panel > Administrative Tools > Event Viewer , under Windows Logs > Application
+* Ensure that the service can find the Atapi.dll ( i.e. is in the same folder as TapiCallMonitorService.exe )
+
 
 # The log
 
-The service writes every TAPI event to a single log table ( tblPbxLog ), and a log file.
+The service writes every TAPI event to a single log table ( tblPbxLog ) and the log file, as a colon-delimited line.
 
-The table and logfile are only appended to, it is up to other systems to archive these records or rotate the logs 
-(you probably want to stop the service whilst that's happening). 
+The table and logfile are only inserted into or appended, it is up to other systems to archive these records or rotate the logs. You probably want to stop or pause the service whilst that's happening.
 
-There are four main types of events which are logged:
+There are four main types of events logged:
 * Windows service events ( Start, Stop, Pause, Continue )
 * TAPI call events ( NewCall, CallStateChanged, CallInfoChanged )
 * TAPI line events ( LineAdded, LineChanged, LineRemoved )
@@ -52,12 +73,15 @@ The exact nature of the TAPI events depends on the type of PBX that you're using
 Although the TAPI fields are standard, the order of those events and the data in the event fields changes between PBX vendors. 
 The TapiCallMonitorService does not try to interpret the values in the TAPI events at all. 
 
-You probably just want to run it for a few days, and perform a few activities like forwarding calls etc to see what appears in the logs.
+You probably just want to run it for a few days, and perform a few activities like making and receiving a call, forwarding a call etc to see what appears in the logs.
 
-Not all events populate all fields. Here are the fields which are populated.
-Generally speaking if a field is not populated by an event it is either set to an empty string or the numeric value -1.
+Not all events populate all fields. The tables below show which fields are populated by each event. Generally speaking if a field is not populated by an event it is either set to an empty string or the numeric value -1.
 
-The lngCallState field is a bitmask, to interpret this field, use the values defined in tapi.h ( https://docs.microsoft.com/en-us/windows/win32/tapi/linecallstate--constants )
+Some fields e.g.  lngCallState and lngCallOrigin fields are bitmasks, to interpret these fields, use the values defined in tapi.h . 
+
+See
+*  https://docs.microsoft.com/en-us/windows/win32/tapi/linecallstate--constants  
+* https://docs.microsoft.com/en-us/windows/win32/tapi/linecallorigin--constants
 
 ## Windows Serice Events
 
