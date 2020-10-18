@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Randomnoun\TapiCallMonitorService]
+"LogFilename"="C:\\data\\production\\TapiCallMonitorService\\TapiCallMonitorService.log"
+"ConnectionString"="Server=YOURHOSTNAME\\SQLEXPRESS;Database=pbx-dev;User Id=pbx-dev-username;Password=pbx-dev-password"
+
