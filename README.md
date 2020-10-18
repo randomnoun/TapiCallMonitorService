@@ -18,33 +18,34 @@ To install this software, you will need to
 
 * Clone the repository, or just copy the files in the 'dist' folder to a local folder.
 * Install the TAPI driver for your PBX. 
-   * If you're using Asterix, there's [an open source one](https://www.voip-info.org/asterisk-tapi/), otherwise check the driver download page for your particular PBX device.
+   * If you're using Asterix, there's [an open source one](https://www.voip-info.org/asterisk-tapi/), otherwise check the driver download page for your PBX device.
    
-* Install a SQLServer-compatible database. Microsoft has a free one which is good enough, which you can install with either
-   *  [Visual Studio 2019 Community edition](https://visualstudio.microsoft.com/downloads/) if you want to compile the service from source, or 
-   * [SQL Server 2019 Express](https://www.microsoft.com/en-gb/sql-server/sql-server-downloads) if you don't
+* Install a SQLServer-compatible database. 
+   * [SQL Server 2019 Express](https://www.microsoft.com/en-gb/sql-server/sql-server-downloads) should work well enough, and it's free.
    
 * Set up the database 
-   * Details are in [README-SQLSERVER.md](README-SQLSERVER.md)
+   * Details in [README-SQLSERVER.md](README-SQLSERVER.md)
 
 * Set up the registry
-   * The connection settings to the database are stored in the registry under the following keys:
+   * The connection settings to the database are stored in the registry keys:
       * HKEY_LOCAL_MACHINE\SOFTWARE\Randomnoun\TapiCallMonitorService\LogFilename
       * HKEY_LOCAL_MACHINE\SOFTWARE\Randomnoun\TapiCallMonitorService\ConnectionString
 
-   * You will probably need to create any folders leading up to the log file. In the supplied sample file it's C:\data\logs\TapiCallMonitorService
+   * You will probably need to create any parent folders leading up to the log file. In the supplied sample file it's `C:\data\logs\TapiCallMonitorService`
    * A sample .reg file which contains the required connection string format can be found in [sample-reg-setup.reg](sample-reg-setup.reg) .  
-      * Replace 'YTTRIUM' with your hostname 
-      * Replace 'pbx-dev-username' and 'pbx-dev-password' with the credentials created earlier
-      * Replace 'C:\\data\\logs\\TapiCallMonitorService' with your log path
+      * Replace `YTTRIUM` with your hostname 
+      * Replace `pbx-dev-username` and `pbx-dev-password` with the credentials created earlier
+      * Replace `C:\\data\\logs\\TapiCallMonitorService` with your log path
 
 
 * Install and run the service
    * From an elevated cmd.exe window, run the following commands:
 
-    cd dist 
-    %SystemRoot%\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe TapiCallMonitorService.exe
-    net start TapiCallMonitorService
+```
+cd dist 
+%SystemRoot%\Microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe TapiCallMonitorService.exe
+net start TapiCallMonitorService
+```
 
 # Troubleshooting
 * Check that the service has been installed in Control Panel > Administrative Tools > Services > TapiCallMonitorService
@@ -71,22 +72,23 @@ There are four main types of events logged:
  
 The exact nature of the TAPI events depends on the type of PBX that you're using. 
 Although the TAPI fields are standard, the order of those events and the data in the event fields changes between PBX vendors. 
-The TapiCallMonitorService does not try to interpret the values in the TAPI events at all. 
+The TapiCallMonitorService does not try to interpret the values in the TAPI events. 
 
-You probably just want to run it for a few days, and perform a few activities like making and receiving a call, forwarding a call etc to see what appears in the logs.
+You probably just want to run it for a few days, and perform a few activities like making and receiving calls, forwarding calls etc to see what appears in the logs.
 
 Not all events populate all fields. The tables below show which fields are populated by each event. Generally speaking if a field is not populated by an event it is either set to an empty string or the numeric value -1.
 
-Some fields e.g.  lngCallState and lngCallOrigin fields are bitmasks, to interpret these fields, use the values defined in tapi.h . 
+Some fields e.g.  lngCallState and lngCallOrigin fields are bitmasks. To interpret these fields, use the values defined in tapi.h . 
 
 See
-*  https://docs.microsoft.com/en-us/windows/win32/tapi/linecallstate--constants  
+* https://docs.microsoft.com/en-us/windows/win32/tapi/linecallstate--constants  
 * https://docs.microsoft.com/en-us/windows/win32/tapi/linecallorigin--constants
+* https://github.com/tpn/winsdk-10/blob/master/Include/10.0.16299.0/um/Tapi.h
 
 ## Windows Serice Events
 
 The txtCallerName contains the version number of the service (currently 0.4), and during startup also includes the number of lines successfully being monitored.
-( Some PBXes expose a large number of lines over TAPI, only a subset of which are active ).
+Some PBXes expose a large number of lines over TAPI, only a subset of which are active.
 
 
 | Windows Service Events               |                                                   |                 |                |                   |
