@@ -225,6 +225,6 @@ If you're interested, the rest of the notification system was built on top of an
 
 ## Building from source
 
-This service was originally created using Visual C# 2010 Express, but the solution files have bene updated to use Visual 2019 Community edition.
+This service was originally created using Visual C# 2010 Express, but the solution files have been updated to use Visual 2019 Community edition.
 
 This project uses the MIT-licensed ATAPI.net managed library from https://github.com/markjulmar/atapi.net
