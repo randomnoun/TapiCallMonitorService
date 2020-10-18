@@ -222,3 +222,9 @@ Note that this workflow is not implemented by this service, the description abov
 **All this service does is monitor a PBX and dump call information into a database.** 
 
 If you're interested, the rest of the notification system was built on top of an Openfire XMPP (jabber) server and some custom XMPP client software.
+
+## Building from source
+
+This service was originally created using Visual C# 2010 Express, but the solution files have bene updated to use Visual 2019 Community edition.
+
+This project uses the MIT-licensed ATAPI.net managed library from https://github.com/markjulmar/atapi.net
