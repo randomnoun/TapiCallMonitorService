@@ -1,6 +1,4 @@
 /.project
-obj/
-.vs/
 /.vs/
 /bin/
 /dist/TapiCallMonitorService.InstallLog
